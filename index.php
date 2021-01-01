@@ -42,9 +42,9 @@
           <h5 class="card-header">Search</h5>
           <div class="card-body">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for...">
+              <input type="text" id="text_find" class="form-control" placeholder="Search for...">
               <span class="input-group-append">
-                <button class="btn btn-secondary" type="button">Go!</button>
+                <button class="btn btn-secondary" onClick="clickSearch();" type="button">Go!</button>
               </span>
             </div>
           </div>
@@ -94,71 +94,87 @@
         </div>
 
     </div>
-       <?php
-				  if (isset($_POST['submit'])) { //isset de kiem tra xem co click vao button submit chua
-					$hovaten = $_POST['hovaten'];
-					$namsinh = $_POST['namsinh'];
-					$link = $_POST['link'];
-				
-				?>
       <div class="col-lg-8">
-        <div class="row">
+	  <div id="result">
+	  <!--Block-->
+        <!--<div class="row">
             <div class="col-lg-4 mt-4">
-                <img class="img-fluid rounded" src="<?=$link;?>" alt="">
+                <img class="img-fluid rounded" src="" alt="">
             </div>
             <div class="col-lg-7 mt-4">
                 <div>
                   
                   <div class="card-body">
                     <h4 class="card-title">TEST POST</h4>
-					<?php echo '<p class="lead">'.$hovaten.'</p>
-                    <p class="card-text">'.$namsinh.'</p>'; ?>
+					<p class="lead">AA</p>
+                    <p class="card-text"></p>
+					<a href="" class="btn btn-primary float-right">Xem chi tiết</a>
                   </div>
 				
                
             </div>
         </div>
-      </div> <?php } ?>
-      <hr>  
-      <div class="row">
-        <div class="col-lg-4 mt-4">
-            <img class="img-fluid rounded" src="http://placehold.it/300x300" alt="">
-        </div>
-        <div class="col-lg-7 mt-4">
-            <div>
-              
-              <div class="card-body">
-                <h4 class="card-title">Title</h4>
-                <p class="card-text">Text</p>
-              </div>
-           
-        </div>
-    </div>
-  </div> 
-  <hr>  
-  <div class="row">
-    <div class="col-lg-4 mt-4">
-        <img class="img-fluid rounded" src="http://placehold.it/300x300" alt="">
-    </div>
-    <div class="col-lg-7 mt-4">
-        <div>
-          
-          <div class="card-body">
-            <h4 class="card-title">Title</h4>
-            <p class="card-text">Text</p>
-          </div>
-       
-    </div>
-</div>
-</div> 
-<hr>  
+      </div>
+      <hr> --> <!--End block-->
+      </div>
     </div>
         
     <!-- /.row -->
 
   </div>
   <!-- /.container -->
+	<script type="text/javascript">
+		function clickSearch() {
+			var get_keyword = document.getElementById("text_find").value;
+			document.getElementById("result").innerHTML = "<div class='row text-center'>Searching '"+get_keyword+"'...</div>";
+			readTextFile("/back_end/?q=" + get_keyword, function(text){
+			var data = JSON.parse(text); //Lấ kết quả search JSON
+			//console.log(data);
+			document.getElementById("result").innerHTML = "Đã tìm thấy " + data.length + " kết quả!";
+			data.forEach(printResult); //Đưa vào vòng lặp và in ra
+			
+		});
+		}
+		//Print result
+		function printResult(item, index) {
+		 // document.getElementById("demo").innerHTML += index + ":" + item + "<br>"; 
+		  document.getElementById("result").innerHTML +=  '<!--Block-->'+
+'        <div class="row">'+
+'            <div class="col-lg-4 mt-4">'+
+'                <img class="img-fluid rounded" src="' +item['image']+ '" alt="' +item['title']+ '">'+
+'            </div>'+
+'            <div class="col-lg-7 mt-4">'+
+'                <div>'+
+'                  '+
+'                  <div class="card-body">'+
+'                    <h4 class="card-title">' +item['title']+ '</h4>'+
+'					<p class="lead">' +item['district']+ '</p>'+
+'                    <p class="card-text">' +item['price']+ '</p>'+
+'					<a href="'+item['link']+'" target="_blank" class="btn btn-primary float-right">Xem chi tiết</a>' +
+'                  </div>'+
+'				'+
+'               '+
+'            </div>'+
+'        </div>'+
+'      </div>'+
+'      <hr>  <!--End block-->';
+		}
+		//read json
+		function readTextFile(file, callback) {
+			var rawFile = new XMLHttpRequest();
+			rawFile.overrideMimeType("application/json");
+			rawFile.open("GET", file, true);
+			rawFile.onreadystatechange = function() {
+				if (rawFile.readyState === 4 && rawFile.status == "200") {
+					callback(rawFile.responseText);
+				}
+			}
+			rawFile.send(null);
+		}
 
+		//usage:
+		
+	</script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

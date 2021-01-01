@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="vi">
   <head>
     <title>Test</title>
     <!-- Required meta tags -->
@@ -37,7 +37,7 @@
       <!-- Post Content Column -->
       <div class="col-md-4">
 
-        <!-- Search Widget -->
+        <!-- Search Widget - Cần thêm tuỳ chọn quận để tìm kiếm chính xác hơn-->
         <div class="card my-4">
           <h5 class="card-header">Search</h5>
           <div class="card-body">

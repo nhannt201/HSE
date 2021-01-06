@@ -3,8 +3,8 @@ require_once('simple_html_dom.php');
 require_once("main.php");
 if (isset($_GET['q'])) {
 	$method = new method();
-	$link_q = 'https://nha.chotot.com/tp-ho-chi-minh/thue-bat-dong-san?q='.$method->red_kw($_GET['q']);
-	$method->chotot_query($link_q);
+	$link_q = 'https://nha.chotot.com/tp-ho-chi-minh/thue-phong-tro?q='.urlencode($method->red_kw($_GET['q']));
+	$method->chotot_query($link_q, 5);
 } else {
 	
 }

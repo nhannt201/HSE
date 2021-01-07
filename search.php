@@ -34,7 +34,7 @@ body {
 <body>
 <div class="border fixed-top search">
 	<form method="get" action="search" id="search_q" >
-		<img src="./images/logo.png" width="90px"/>
+		<a href="/"><img src="./images/logo.png" width="90px"/></a>
 		<input id="search" name="q" type="text" value="<?php echo $_GET['q']; ?>" placeholder="Bạn muốn tìm phòng trọ ở đâu?" >
 	</form>
 </div>

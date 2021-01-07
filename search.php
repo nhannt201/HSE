@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <title>Bootstrap 4 Example</title>
+  <title><?php echo $_GET['q']." - Tìm với Nhà ngay"; ?></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -15,14 +15,31 @@
     height: 100%;
     object-fit: cover;
   }
+.search {
+	padding-left: 250px;
+	padding-top: 15px;
+	background-color: #fff;
+	height: 50px;
+	float: left;
+}
+.main_title {
+	float: left;
+	
+}
+body {
+	padding-top: 25px;
+}
   </style>
 </head>
 <body>
-
-<div class="container pt-3 my-3">
-<div class="row border">
-	 <div class="col-12">Tìm kiếm cho <?php echo $_GET['q']; ?></div>
+<div class="border fixed-top search">
+	<form method="get" action="search" id="search_q" >
+		<img src="./images/logo.png" width="90px"/>
+		<input id="search" name="q" type="text" value="<?php echo $_GET['q']; ?>" placeholder="Bạn muốn tìm phòng trọ ở đâu?" >
+	</form>
 </div>
+<div class="container pt-3 my-3">
+
  <div class="row">
   <div class="col-4 my-3 border">Tuỳ chọn nâng cao</div>
   <div class="col-8 my-3 border">

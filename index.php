@@ -76,7 +76,7 @@
   <body>
     <div class="s130">
 	
-      <form method="get" action="search" id="search_q" ><div class="main_title"><!--CÔNG CỤ TÌM KIẾM PHÒNG TRỌ--><img src="./images/logo.png" width="380px"/></div>	
+      <form method="get" action="search" autocomplete="off" id="search_q" ><div class="main_title"><!--CÔNG CỤ TÌM KIẾM PHÒNG TRỌ--><img src="./images/logo.png" width="380px"/></div>	
         <div class="inner-form">
 			
           <div class="input-field first-wrap">

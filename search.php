@@ -16,32 +16,47 @@
     object-fit: cover;
   }
 .search {
-	padding-left: 250px;
-	padding-top: 15px;
+	padding-top: 5px;
 	background-color: #fff;
 	height: 50px;
-	float: left;
-}
-.main_title {
-	float: left;
-	
 }
 body {
 	padding-top: 25px;
 }
+.img_logo {
+	margin-right: auto;
+    margin-left: auto;
+}
   </style>
 </head>
 <body>
-<div class="border fixed-top search">
+<div class="border fixed-top search container">
 	<form method="get" action="search" id="search_q" >
-		<a href="/"><img src="./images/logo.png" width="90px"/></a>
-		<input id="search" name="q" type="text" value="<?php echo $_GET['q']; ?>" placeholder="Bạn muốn tìm phòng trọ ở đâu?" >
+		<div class="form-group row">
+			<div class="col-sm-4 pt-1"><a href="/"><img  class="img_logo" src="./images/logo.png" width="90px"/></a>
+			 <div class="input-group-btn">
+			  <button class="btn btn-default" type="submit">
+				<i class="glyphicon glyphicon-search"></i>
+			  </button>
+			</div>
+			</div>
+			<div class="col-sm-8 ">
+				<input id="search" class="form-control" name="q" type="text" value="<?php echo $_GET['q']; ?>" placeholder="Bạn muốn tìm phòng trọ ở đâu?" >
+				  <div class="input-group-btn">
+				  <button class="btn btn-default" type="submit">
+					<i class="glyphicon glyphicon-search"></i>
+				  </button>
+				</div>
+			</div>
+		</div>
 	</form>
 </div>
-<div class="container pt-3 my-3">
+<div class="container pt-1 my-1">
 
  <div class="row">
-  <div class="col-4 my-3 border">Tuỳ chọn nâng cao</div>
+  <div class="col-4 my-3 pt-1 border">
+  <p>Tuỳ chọn nâng cao</p>
+  </div>
   <div class="col-8 my-3 border">
   <div id="result" class="pt-3">
   </div>

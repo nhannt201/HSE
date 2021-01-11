@@ -5,7 +5,7 @@ if (isset($_GET['q'])) {
 	$method = new method();
 	$link_q = 'https://nha.chotot.com/tp-ho-chi-minh/thue-phong-tro?q='.urlencode($method->red_kw($_GET['q']));
 	$method->chotot_query($link_q, 10);
-} else {
+} else { //Thêm bộ lọc vào sẽ lấy dữ liệu từ query và đưa qua trang đích để lấy kq tìm kiếm
 	
 }
 

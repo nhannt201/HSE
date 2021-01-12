@@ -67,23 +67,23 @@ body {
         <!-- END SEARCH INPUT -->
         <hr>
         <!-- BEGIN FILTER BY SERVICE -->
-        <h5>Loại chỗ ở</h5>
-        <div class="checkbox">
-            <label><input name="hp-advanced-search-room-type" type="checkbox" class="icheck" value="0"> Ký túc xá</label>
-        </div>
-        <div class="checkbox">
-            <label><input name="hp-advanced-search-room-type" type="checkbox" class="icheck" value="1"> Phòng trọ</label>
-        </div>
-        <div class="checkbox">
-            <label><input name="hp-advanced-search-room-type" type="checkbox" class="icheck" value="2"> Căn hộ dịch vụ</label>
-        </div>
+			<!--<h5>Loại chỗ ở</h5>
+			<div class="checkbox">
+				<label><input name="hp-advanced-search-room-type" type="checkbox" class="icheck" value="0"> Ký túc xá</label>
+			</div>
+			<div class="checkbox">
+				<label><input name="hp-advanced-search-room-type" type="checkbox" class="icheck" value="1"> Phòng trọ</label>
+			</div>
+			<div class="checkbox">
+				<label><input name="hp-advanced-search-room-type" type="checkbox" class="icheck" value="2"> Căn hộ dịch vụ</label>
+			</div><hr>-->
         <!-- END FILTER BY SERVICE -->
-        <hr>
+        
         <!-- BEGIN FILTER BY AREA -->
         <h5>Chọn theo khu vực</h5>
         <select class="form-control" id="sl-province" name="sl-province">
-            <option value="" selected="">Tỉnh/Thành phố</option>
-            <option value="79">Thành phố Hồ Chí Minh</option>
+            <option value="" >Tỉnh/Thành phố</option>
+            <option value="79" selected="">Thành phố Hồ Chí Minh</option>
         </select>
         <select class="form-control ml-0 my-2" id="sl-district" name="sl-district">
             <option value="" selected="">Quận/Huyện</option>
@@ -111,6 +111,14 @@ body {
             <option class="" value="785">Huyện Bình Chánh</option>
             <option class="" value="786">Huyện Nhà Bè</option>
             <option class="" value="787">Huyện Cần Giờ</option>
+        </select>
+		<hr>
+		<h5>Chọn theo khoảng giá</h5>
+        <select class="form-control" id="" name="">
+            <option value="0">Tất cả</option>
+			<option value="1">Dưới 3 triệu</option>
+			<option value="2">Từ 3 đến 5 triệu</option>
+			<option value="3">Từ 5 đến 7 triệu</option>
         </select>
   <!--END_NC-->
   </div> </div>

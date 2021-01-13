@@ -93,7 +93,7 @@
 
         </div>
 		<div class="btn-s2">
-            <button class="btn-search" onClick='document.getElementById("search_q").submit();' type="button">Tìm ngay</button>
+            <button class="btn-search" onClick='submit_q();' type="button">Tìm ngay</button>
          
         <!--<span class="info">Ví dụ: Bình Thạnh, Đại học Văn Lang, Cầu Sài Gòn</span>-->
       </form>
@@ -151,9 +151,13 @@ function showPosition(position) {
   			readTextFile("https://us1.locationiq.com/v1/reverse.php?key=pk.98a465c5721da9999dad60a1cd9f7814&lat="+position.coords.latitude+"&lon="+position.coords.longitude+"&format=json", function(text){
 			var data = JSON.parse(text); //Lấ kết quả search JSON
 				x.value = data['address']['county'];
-				setTimeout(function(){ document.getElementById("search_q").submit(); }, 200);
-				
+					setTimeout(function(){ document.getElementById("search_q").submit(); }, 200);
 			});
+}
+function submit_q() {
+	if(x.value.length > 0){
+		document.getElementById("search_q").submit();
+	}
 }
 </script>
 <script src="/js/json.js" type="text/javascript"></script>

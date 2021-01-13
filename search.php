@@ -120,6 +120,14 @@ body {
 			<option value="2">Từ 3 đến 5 triệu</option>
 			<option value="3">Từ 5 đến 7 triệu</option>
         </select>
+		<hr>
+		<h5>Chọn theo trang</h5>
+        <select class="form-control" id="" name="">
+            <option value="0">Tất cả</option>
+			<option value="">nha.chotot.com</option>
+			<option value="">batdongsan.com.vn</option>
+			<option value="">muaban.net</option>
+        </select>
   <!--END_NC-->
   </div> </div>
   <div class="col-8 my-3 border">

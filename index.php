@@ -150,14 +150,14 @@ function showPosition(position) {
 			//x.value = position.coords.latitude + " " + position.coords.longitude;
   			readTextFile("https://us1.locationiq.com/v1/reverse.php?key=pk.98a465c5721da9999dad60a1cd9f7814&lat="+position.coords.latitude+"&lon="+position.coords.longitude+"&format=json", function(text){
 			var data = JSON.parse(text); //Lấ kết quả search JSON
-				x.value = data['address']['county'];
-					setTimeout(function(){ document.getElementById("search_q").submit(); }, 200);
+			window.location.replace("/search?q="+data['address']['county'].replaceAll(" ", "+"));
+
+				//x.value = data['address']['county'];
+					//setTimeout(function(){ document.getElementById("search_q").submit(); }, 200);
 			});
 }
 function submit_q() {
-	if(x.value.length > 0){
-		document.getElementById("search_q").submit();
-	}
+	if(x.value.length > 0){ document.getElementById("search_q").submit();}
 }
 </script>
 <script src="/js/json.js" type="text/javascript"></script>

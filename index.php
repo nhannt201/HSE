@@ -147,8 +147,15 @@ function getLocation() {
 }
 
 function showPosition(position) {
-  x.value = position.coords.latitude + " " + position.coords.longitude;
+			//x.value = position.coords.latitude + " " + position.coords.longitude;
+  			readTextFile("https://us1.locationiq.com/v1/reverse.php?key=pk.98a465c5721da9999dad60a1cd9f7814&lat="+position.coords.latitude+"&lon="+position.coords.longitude+"&format=json", function(text){
+			var data = JSON.parse(text); //Lấ kết quả search JSON
+				x.value = data['address']['county'];
+				setTimeout(function(){ document.getElementById("search_q").submit(); }, 200);
+				
+			});
 }
 </script>
+<script src="/js/json.js" type="text/javascript"></script>
   </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

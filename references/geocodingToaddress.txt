@@ -1,0 +1,5 @@
+API chuyen Geocoding sang Address
+Dang dung: https://locationiq.com/docs
+Giai phap thay the:
+- https://positionstack.com/signup/free
+- https://opencagedata.com/api

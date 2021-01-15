@@ -118,6 +118,38 @@
 		
 	}
 	
+	//alonhadat.com.vn Area
+	function alonhadat_query($path, $limit=15) { 
+		$domResult = new simple_html_dom();
+		$domResult->load($this->curl_in($path));
+		$list_add = array();
+		$count = 1;
+		foreach($domResult->find('div[class=list-item-container]') as $list)  //Lay duoc list
+		
+		foreach($list->find('a') as $element) {
+				if ($count <= $limit) {
+					if (isset($element->href)) {
+						array_push($list_add, array(
+						"link" => $element->href,
+						"title" => $list->find('h2[class=list-item__title]', 0)->plaintext,
+						"price" => $list->find('span[class=list-item__price]', 0)->plaintext,
+						"image" => $list->find('img[class=list-item__image lozad]', 0)->getAttribute('data-src'),
+						"district" => $list->find('span[class=list-item__location]', 0)->plaintext
+								)
+							);
+						$count++;
+						}
+				} else {
+					break;
+				}
+			//	var_dump($list);
+		}
+		
+		 echo json_encode($list_add); //Cover to JSON
+		// echo $domResult;
+		
+	}
+	
 	//Other api
 	function convert_name($str) {
 		$str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);

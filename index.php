@@ -152,7 +152,7 @@ function showPosition(position) {
 			var data = JSON.parse(text); //Lấ kết quả search JSON
 			window.location.replace("/search?q="+data['address']['county'].replaceAll(" ", "+"));
 
-				//x.value = data['address']['county'];
+				x.value = data['address']['county'];
 					//setTimeout(function(){ document.getElementById("search_q").submit(); }, 200);
 			});
 }
